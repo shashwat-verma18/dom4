@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+</head>
+<body onload="refresh()">
+
+    <form>
+        <label for="firstName">Name :</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+    
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
+    
+        <label for="phone">Phone :</label>
+        <input type="tel" id="phone" name="phone" placeholder="9988771234" pattern="[0-9]{10}" required>
+
+        <button class="btn" type="button" onclick="submitForm()">Submit</button>
+
+    </form>
+    <ul id="listCon">
+
+    </ul>
+    <script src="dom.js"></script>
+</body>
+</html>
