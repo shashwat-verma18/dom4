@@ -54,9 +54,14 @@ function refresh(){
         deleteBtn.style.marginLeft='7px';
         li.appendChild(deleteBtn);
 
+        var editBtn = document.createElement('button');
+        editBtn.onclick = editItem;
+        editBtn.appendChild(document.createTextNode('Edit'));
+        editBtn.style.marginLeft='7px';
+        li.appendChild(editBtn);
+
         li.style.padding = '5px';
         list.appendChild(li);
-        console.log(val);
     
         
     }
@@ -68,6 +73,26 @@ function removeAll(){
     while(list.firstChild){
         list.removeChild(list.firstChild);
     }
+}
 
+function editItem(e){
+    var li = e.target.parentElement;
+    var liContent = li.innerText;
+    const str = liContent.split("-");
+    
+    var key = str[1];
 
+    var list = document.getElementById('listCon');
+    list.removeChild(li);       
+        
+    localStorage.removeItem(key);
+
+    var name  = document.getElementById('name');
+    var email  = document.getElementById('email');
+    var phone  = document.getElementById('phone');
+
+    var ind = str[2].indexOf(" "); 
+    name.value = str[0];
+    email.value = str[1];
+    phone.value = str[2].substring(0,ind);
 }
